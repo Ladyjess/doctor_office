@@ -1,0 +1,27 @@
+<div class="jumbotron"><h1>Doctor's Office Organizer</h1></div>
+
+<form action="/doctors" method="post">
+
+  <label for="name">Enter the name of a doctor:</label>
+  <input id="name" name="name" type="text">
+
+  <label for="speciality">Enter a specialty</label>
+  <input id="specialty" name="specialty" type="text">
+
+  <button type="submit">GO</button>
+</form>
+
+
+<% if @doctors.any? %>
+
+ <% @doctors.each do |doctor| %>
+  <ul>
+    <li><a href="/doctors/<%= doctor.id %>"><%= doctor.name %> <%= doctor.specialty%> </li></a>
+ <% end %>
+
+  <% else %>
+
+  <p> There are not doctors yet </p>
+
+  <% end %>
+</ul>
